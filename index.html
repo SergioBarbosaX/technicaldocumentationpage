@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Technical Documentation Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/technicaldocumentationpage.css">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'
+          integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+</head>
+<body>
+    <nav id="navbar">
+        <header>
+            <img src= "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/AngularJS_logo.svg/800px-AngularJS_logo.svg.png"
+                 id="logo" alt="AngularJS logo">
+        </header>
+        <a href="#introduction" class="nav-link">Introduction</a>
+        <a href="#setup" class="nav-link">Setup</a>
+        <a href="#directives" class="nav-link">Directives</a>
+        <a href="#expressions" class="nav-link">Expressions</a>
+        <a href="#controllers" class="nav-link">Controllers</a>
+        <a href="#modules" class="nav-link">Modules</a>
+        <a href="#model" class="nav-link">Model</a>
+        <a href="#data_binding" class="nav-link">Data Binding</a>
+        <a href="#references" class="nav-link">References</a>
+    </nav>
+    <main id="main-doc">
+        <section class="main-section" id="introduction">
+            <header>Introduction</header>
+            <p>AngularJS is a JavaScript-based open-source front-end web framework mainly maintained by Google and by a
+                community of individuals and corporations to address many of the challenges encountered in developing
+                single-page applications. It aims to simplify both the development and the testing of such applications
+                by providing a framework for client-side model–view–controller (MVC) and model–view–viewmodel (MVVM)
+                architectures, along with components commonly used in rich Internet applications. (This flexibility has
+                led to the acronym MVW, which stands for "model-view-whatever" and may also encompass
+                model–view–presenter and model–view–adapter.) In 2014, the original AngularJS team began working on the
+                Angular web framework.</p>
+            <p>The AngularJS framework works by first reading the Hypertext Markup Language (HTML) page, which has
+                additional custom HTML attributes embedded into it. Angular interprets those attributes as directives to
+                bind input or output parts of the page to a model that is represented by standard JavaScript variables.
+                The values of those JavaScript variables can be manually set within the code, or retrieved from static
+                or dynamic JSON resources.</p>
+            <p>AngularJS is the frontend part of the MEAN stack, consisting of MongoDB database, Express.js
+                web application server framework, Angular.js itself, and Node.js server runtime environment.</p>
+            <code></code>
+        </section>
+
+        <br>
+
+        <section class="main-section" id="setup">
+            <header>Setup</header>
+            <p>AngularJS is a JavaScript framework. It is a library written in JavaScript.</p>
+            <p>AngularJS is distributed as a JavaScript file. To add AngularJS to a web page we should set a script tag
+                with a src value like this:</p>
+            <pre>
+                <code>
+                    <span><</span><span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"</span><span>></span>
+                </code>
+            </pre>
+            <p>Once this line is added to our html file we can begin to use the AngularJS framework.</p>
+            <p>It is recommended to load the AngularJS library either in the <code><span><</span>head<span>></span></code>
+                or at the start of the <code><span><</span>body<span>></span></code>. This is because calls to
+                Angular modules (some kind of modules that we will see later) can only be compiled after the library
+                has been loaded.</p>
+        </section>
+
+        <br>
+
+        <section class="main-section" id="directives">
+            <header>Directives</header>
+            <p>The way that AngularJS works is extending html tags with directives. Every directive has a
+                <code>ng-</code> prefix, so this is the reason that this tags are called ng-directives.</p>
+            <p>There are different kinds of directives that we can use, but the most importants to begin to code are:</p>
+            <ul>
+                <li>The <code>ng-app</code> directive defines an AngularJS application.</li>
+                <li>The <code>ng-model</code> directive binds the value of HTML controls (input, select, textarea) to application
+                    data.
+                </li>
+                <li>The <code>ng-bind</code> directive binds application data to the HTML view.</li>
+            </ul>
+            <p>Lets take a look to our first example.</p>
+            <pre>
+                <code>
+                    <span><</span>!DOCTYPE html<span>></span>
+                    <span><</span>html<span>></span>
+                    <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"<span>></span>
+                    <span><</span>body<span>></span>
+                    <span><</span>div ng-app=""<span>></span>
+                    <span>  <</span>p<span>></span>Name: <span><</span>input type="text" ng-model="name"<span>></span><span><</span>/p<span>></span>
+                    <span>  <</span>p<span>></span>ng-bind="name"<span><</span>/p<span>></span>
+                    <span><</span>/div<span>></span>
+                    <span><</span>/body<span>></span>
+                    <span><</span>/html<span>></span>
+                </code>
+            </pre>
+            <p>The explanation of the above code is: </p>
+            <ol>
+                <li>AngularJS starts automatically when the web page has loaded due to the <code>script</code> tag.</li>
+                <li>The <code>ng-app</code> directive tells AngularJS that the <code>div</code> element is the
+                    "owner" of an AngularJS application.
+                <li>The <code>ng-model</code> directive binds the value of the input field to the application variable
+                    name.</li>
+                <li>The <code>ng-bind</code> directive binds the content of the <code>p</code> element to the
+                    application variable name.</li>
+            </ol>
+            <ul>
+                <li>The <code>ng-init</code> directive initializes application data.</li>
+            </ul>
+            <p>We can see this directive in an example.</p>
+            <pre>
+                <code>
+                    <span><</span>div ng-app="" ng-init="firstName='John'"<span>></span>
+                    <span><</span>p<span>></span>Name: <span><</span>input type="text" ng-model="firstName"<span>></span><span><</span>/p<span>></span>
+                    <span><</span>p<span>></span>You wrote: {{ firstName }}<span><</span>/p<span>></span>
+                    <span><</span>/div<span>></span>
+                </code>
+            </pre>
+            <p>The code above shows in the screen the name John after the sentence You wrote: because John is the value
+                that we have initialized and assigned to the variable <code>{{firstName}}</code></p>
+            <p>The <code>{{firstName}}</code> expression, in the example above, is an AngularJS data binding expression.</p>
+            <p>Data binding in AngularJS binds AngularJS expressions with AngularJS data.</p>
+            <p><code>{{firstName}}</code> is bound with ng-model="firstName".</p>
+            <ul>
+                <li>The <code>ng-repeat</code> directive repeats an HTML element.</li>
+            </ul>
+            <pre>
+                <code>
+                    <span><</span>div ng-app="" ng-init="names=['Jani','Hege','Kai']"<span>></span>
+                    <span><</span>ul<span>></span>
+                        <span><</span>li ng-repeat="x in names"<span>></span>
+                        <span>  {{ x }}</span>
+                        <span><</span>li<span>></span>
+                    <span><</span>/ul<span>></span>
+                    <span><</span>/div<span>></span>
+                </code>
+            </pre>
+            <p>The code above shows in the screen an unordered list with the names Jani, Hege, Kai</p>
+        </section>
+
+        <br>
+
+        <section class="main-section" id="expressions">
+            <header>Expressions</header>
+            <p>AngularJS expressions can be written inside double braces: <code>{{ expression }}</code>.</p>
+            <p>AngularJS expressions can also be written inside a directive: <code>ng-bind="expression"</code>.</p>
+            <p>AngularJS will resolve the expression, and return the result exactly where the expression is written.</p>
+            <p>AngularJS expressions can contain literals, operators, and variables.</p>
+            <p>We can use diferent kind of elements in an AngularJS expression.</p>
+            <ul>
+                <li>AngularJS numbers</li>
+            </ul>
+            <pre>
+                <code>
+                    <span><</span>div ng-app="" ng-init="quantity=1;cost=5"<span>></span>
+                    <span><</span>p<span>></span>Total in dollar: {{ quantity * cost }}<span><</span>/p<span>></span>
+                    <span><</span>/div<span>></span>
+                </code>
+            </pre>
+            <p>The same code using <code>ng-bind</code></p>
+            <pre>
+                <code>
+                    <span><</span>div ng-app="" ng-init="quantity=1;cost=5"><span>></span>
+                    <span><</span>p<span>></span>Total in dollar: <span><</span>span ng-bind="quantity * cost"><span><</span>/span<span>></span>
+                    <span><</span>/div<span>></span>
+                </code>
+            </pre>
+            <p>Where the result is 5 in both cases.</p>
+            <ul>
+                <li>AngularJS strings</li>
+            </ul>
+            <pre>
+                <code>
+                    <span><</span>div ng-app="" ng-init="firstName='John';lastName='Doe'"<span>></span>
+                    <span><</span>p<span>></span>The name is {{ firstName + " " + lastName }}<span><</span>/p<span>></span>
+                    <span><</span>/div<span>></span>
+                </code>
+            </pre>
+            <p>Where the result is: The full name is John Doe</p>
+            <p>The same example can be done using <code>ng-bind</code> directive.</p>
+            <ul>
+                <li>AngularJS objects</li>
+            </ul>
+            <pre>
+                <code>
+                    <span><</span>div ng-app="" ng-init="person={firstName:'John',lastName:'Doe'}"<span>></span>
+                    <span><</span>p<span>></span>The name is {{ person.lastName }}<span><</span>/p<span>></span>
+                    <span><</span>/div<span>></span>
+                </code>
+            </pre>
+            <p>Where the result is: The name is Doe</p>
+            <p>The same example can be done using <code>ng-bind</code> directive.</p>
+            <ul>
+                <li>AngularJS arrays</li>
+            </ul>
+            <pre>
+                <code>
+                    <span><</span>div ng-app="" ng-init="points=[1,15,19,2,40]"<span>></span>
+                    <span><</span>p<span>></span>The third result is {{ points[2] }}<span><</span>/p<span>></span>
+                    <span><</span>/div<span>></span>
+                </code>
+            </pre>
+            <p>Where the result is: The third result is 19</p>
+            <p>The same example can be done using <code>ng-bind</code> directive.</p>
+        </section>
+
+        <br>
+
+        <section class="main-section" id="controllers">
+            <header>Controllers</header>
+            <p>AngularJS controllers control the data of AngularJS applications.</p>
+            <p>AngularJS applications are controlled by controllers.</p>
+            <p>The <code>ng-controller</code> directive defines the application controller.</p>
+            <pre>
+                <code>
+                    <span><</span>div ng-app="myApp" ng-controller="myCtrl"<span>></span>
+                    First Name: <span><</span>input type="text" ng-model="firstName"<span>></span><span><</span>br<span>></span>
+                    Last Name: <span><</span>input type="text" ng-model="lastName"<span>></span><span><</span>br<span>></span>
+                    <span><</span>br<span>></span>
+                    Full Name: {{firstName + " " + lastName}}
+
+                    <span><</span>/div<span>></span>
+
+                    <span><</span>script<span>></span>
+                    var app = angular.module('myApp', []);
+                    app.controller('myCtrl', function($scope) {
+                    $scope.firstName = "John";
+                    $scope.lastName = "Doe";
+                    });
+                    <span><</span>/script<span>></span>
+                </code>
+            </pre>
+            <p>The application works in this way: </p>
+            <ol>
+                <li>The AngularJS application is defined by <code>ng-app="myApp"</code>. The application runs inside the
+                    <code><span><</span>/div<span>></span></code>.</li>
+                <li>The <code>ng-controller="myCtrl"</code> attribute is an AngularJS directive. It defines a controller.</li>
+                <li>The <code>myCtrl</code> function is a JavaScript function.</li>
+                <li>AngularJS will invoke the controller with a <code>$scope</code> object.</li>
+                <li>In AngularJS, <code>$scope</code> is the application object (the owner of application variables and
+                    functions).</li>
+                <li>The controller creates two properties (variables) in the scope (<code>firstName</code> and
+                    <code>lastName</code>).</li>
+                <li>The <code>ng-model</code> directives bind the input fields to the controller properties
+                    (<code>firstName</code> and <code>lastName</code>).</li>
+            </ol>
+            <p>The result of the application is Full name: John Doe</p>
+            <p>A controller is a JavaScript Object, created by a standard JavaScript object constructor.</p>
+            <p>One more example</p>
+            <p>In this case the object has attributes and methods.</p>
+            <pre>
+                <code>
+                    <span><</span>div ng-app="myApp" ng-controller="personCtrl"<span>></span>
+                    First Name: <span><</span>input type="text" ng-model="firstName"<span>></span><span><</span>br<span>></span>
+                    Last Name: <span><</span>input type="text" ng-model="lastName"<span>></span><span><</span>br<span>></span>
+                    <span><</span>br<span>></span>
+                    Full Name: {{fullName()}}
+
+                    <span><</span>/div<span>></span>
+
+                    <span><</span>script<span>></span>
+                    var app = angular.module('myApp', []);
+                    app.controller('personCtrl', function($scope) {
+                        $scope.firstName = "John";
+                        $scope.lastName = "Doe";
+                        $scope.fullName = function() {
+                            return $scope.firstName + " " + $scope.lastName;
+                        };
+                    });
+                    <span><</span>/script<span>></span>
+                </code>
+            </pre>
+            <p>The result of the application is like the previous example Full name: John Doe</p>
+            <p>In larger applications, it is common to store controllers in external files. To do this we only need
+            to store the code between <span><</span>script<span>></span><span><</span>/script<span>></span> in a file
+                with .js extension and call it from our file in this way
+                <span><</span>script src="personController.js"<span>></span><span><</span>/script<span>></span></p>
+        </section>
+
+        <br>
+
+        <section class="main-section" id="modules">
+            <header>Modules</header>
+            <p>An AngularJS module defines an application.</p>
+            <p>The module is a container for the different parts of an application.</p>
+            <p>The module is a container for the application controllers.</p>
+            <p>Controllers always belong to a module.</p>
+
+            <p>To create a module we need to use the AngularJS function <code>angular.module</code></p>
+            <pre>
+                <code>
+                    <span><</span>div ng-app="myApp"<span>></span>...<span><</span>/div<span>></span>
+                    <span><</span>script<span>></span>
+                        var app = angular.module("myApp", []);
+                    <span><</span>/script<span>></span>
+                </code>
+            </pre>
+            <p>The "myApp" parameter is an HTML element in which the application will run.</p>
+            <p>The <code>[]</code> parameter in the module definition can be used to define dependent modules.</p>
+            <p>Without the <code>[]</code> parameter, we are not creating a new module, but retrieving an existing one.</p>
+            <p>Once the module is created we can add a controller with the <code>ng-controller</code> directive or other
+            kind of things to our AngularJS application.</p>
+            <pre>
+                <code>
+                    <span><</span>div ng-app="myApp" ng-controller="myCtrl"<span>></span>
+                    {{ firstName + " " + lastName }}
+                    <span><</span>/div<span>></span>
+                    <span><</span>script<span>></span>
+                    var app = angular.module("myApp", []);
+
+                    app.controller("myCtrl", function($scope) {
+                    $scope.firstName = "John";
+                    $scope.lastName = "Doe";
+                    });
+                    <span><</span>/script<span>></span>
+                </code>
+            </pre>
+            <p>It is common in AngularJS applications to put the module and the controllers in JavaScript files.</p>
+            <pre>
+                <code>
+                    <span><</span>!DOCTYPE html<span>></span>
+                    <span><</span>html<span>></span>
+                    <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"<span>></span>
+                    <span><</span>body<span>></span>
+                    <span><</span>div ng-app="myApp" ng-controller="myCtrl"<span>></span>
+                    {{ firstName + " " + lastName }}
+                    <span><</span>/div<span>></span>
+                    <span><</span>script src="myApp.js"<span>></span><span><</span>/script<span>></span>
+                    <span><</span>script src="myCtrl.js"<span>></span><span><</span>/script<span>></span>
+                    <span><</span>/body<span>></span>
+                    <span><</span>/html<span>></span>
+                </code>
+            </pre>
+            <p>"myApp.js" contains an application module definition, while "myCtrl.js" contains the controller.</p>
+        </section>
+
+        <br>
+
+        <section class="main-section" id="model">
+            <header>Model</header>
+            <p>The <code>ng-model</code> directive bind the value of an input field to a variable created in AngularJS.</p>
+            <pre>
+                <code>
+                    <span><</span>div ng-app="myApp" ng-controller="myCtrl"<span>></span>
+                        Name: <span><</span>input ng-model="name"<span>></span>
+                        <span><</span>h1<span>></span>You entered: {{name}}<span><</span>/h1<span>></span>
+                    <span><</span>/div<span>></span>
+                    <span><</span>script<span>></span>
+                    var app = angular.module("myApp", []);
+                    app.controller("myCtrl", function($scope) {
+                        $scope.name = "John Doe";
+                    });
+                    <span><</span>/script<span>></span>
+                </code>
+            </pre>
+            <p>In the previous example when data in the input field is updated, the value displayed is updated too.</p>
+            <p>The <code>ng-model</code> directive can provide type validation for application data (number, e-mail,
+                required)</p>
+            <pre>
+                <code>
+                    <span><</span>form ng-app="" name="myForm"<span>></span>
+                    Email:
+                    <span><</span>input type="email" name="myAddress" ng-model="text"<span>></span>
+                    <span><</span>span ng-show="myForm.myAddress.$error.email"<span>></span>Not a valid e-mail address<span>></span>
+                    <span><</span>/form<span>></span>
+                </code>
+            </pre>
+            <p>In this case the span will be displayed only if the expression in the <code>ng-show</code> attribute
+                returns true.</p>
+            <p>The <code>ng-model</code> directive can provide status for application data (valid, dirty, touched,
+                error)</p>
+            <pre>
+                <code>
+                    <span><</span>form ng-app="" name="myForm" ng-init="myText = 'post@myweb.com'"<span>></span>
+                    Email:
+                    <span><</span>input type="email" name="myAddress" ng-model="myText" required<span>></span>
+                    <span><</span>h1<span>></span>Status<span><</span>/h1<span>></span>
+                    {{myForm.myAddress.$valid}}
+                    {{myForm.myAddress.$dirty}}
+                    {{myForm.myAddress.$touched}}
+                    <span><</span>form<span>></span>
+                </code>
+            </pre>
+            <p>The <code>ng-model</code> directive provides CSS classes for HTML elements, depending on their status.</p>
+            <p>Some of those classes are</p>
+            <ul>
+                <li><code>ng-empty</code></li>
+                <li><code>ng-not-empty</code></li>
+                <li><code>ng-touched</code></li>
+                <li><code>ng-untouched</code></li>
+                <li><code>ng-valid</code></li>
+                <li><code>ng-invalid</code></li>
+                <li><code>ng-dirty</code></li>
+                <li><code>ng-pending</code></li>
+                <li><code>ng-pristine</code></li>
+            </ul>
+            <pre>
+                <code>
+                    <span><</span>style<span>></span>
+                    input.ng-invalid {
+                        background-color: lightblue;
+                    }
+                    <span><</span>/style<span>></span>
+                    <span><</span>body<span>></span>
+                    <span><</span>form ng-app="" name="myForm"<span>></span>
+                    Enter your name:
+                    <span><</span>input name="myName" ng-model="myText" required<span>></span>
+                    <span><</span>/form<span>></span>
+                </code>
+            </pre>
+        </section>
+
+        <br>
+
+        <section class="main-section" id="data_binding">
+            <header>Data Binding</header>
+            <p>An AngularJS application follows the MVC pattern.</p>
+            <p>Data Binding refers to the synchronization between the model and the view. That means that if model
+            changes view reflects it and vice-versa if view changes model is updated as well.</p>
+            <p>The data model is a collection of data available for the application.</p>
+            <pre>
+                <code>
+                    var app = angular.module("myApp", []);
+
+                    app.controller("myCtrl", function($scope) {
+                    $scope.firstName = "John";
+                    $scope.lastName = "Doe";
+                    });
+                </code>
+            </pre>
+            <p>Now from the view we can access to the data model. We can do this in different ways:</p>
+            <ul>
+                <li><code>ng-bind</code> directive</li>
+                <pre>
+                    <code>
+                        <span><</span>p ng-bind="firstname"<span>></span><span><</span>/p<span>></span>
+                    </code>
+                 </pre>
+                <li><code>double braces {{ }}</code></li>
+                <pre>
+                    <code>
+                        <span><</span>p<span>></span>First name: {{firstname}}<span><</span>/p<span>></span>
+                    </code>
+                </pre>
+                <li><code>ng-model directive</code></li>
+                <pre>
+                    <code>
+                        <span><</span>input ng-model="firstname"<span>></span>
+                    </code>
+                </pre>
+            </ul>
+        </section>
+
+        <br>
+
+        <section class="main-section" id="references">
+            <header>References</header>
+            <ol>
+                <li><a href="https://en.wikipedia.org/wiki/AngularJS" class="reference-item" target="_blank"
+                       title="Wikipedia AngularJS article">AngularJS article from Wikipedia</a>
+                    <i class="fas fa-external-link-alt"></i></li>
+                <li><a href="https://angularjs.org/" class="reference-item" target="_blank"
+                       title="Official AngularJS site">AngularJS official site</a>
+                    <i class="fas fa-external-link-alt"></i></li>
+                <li><a href="https://www.w3schools.com/angular/default.asp" class="reference-item" target="_blank"
+                       title="AngularJS W3Schools documentation">AngularJS documentation from W3Schools</a>
+                    <i class="fas fa-external-link-alt"></i></li>
+            </ol>
+        </section>
+
+        <div id="footer">
+            <i class="fab fa-html5"></i>
+            <i class="fab fa-css3-alt"></i>
+
+            <span id="poweredby">Powered by Sergio Barbosa</span>
+        </div>
+    </main>
+
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+</body>
+</html>

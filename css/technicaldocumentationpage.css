@@ -1,0 +1,100 @@
+html, body
+{
+    font-family: OpenSans, arial, SansSerif;
+    line-height: 1.5;
+}
+header {
+    font-size: 2em;
+    border-bottom-style: solid;
+    border-width: 2px;
+}
+p, ul, ol{
+    font-size: 0.95em;
+    display: block;
+    color: rgba(0, 0, 0, 0.74);
+}
+br {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+hr {
+    display: block;
+    border-style: solid;
+    border-width: 0.5px;
+}
+pre {
+    background-color: rgba(235,235,235,.6);/*gainsboro*/;
+    border-radius: 6px;
+}
+#navbar {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 250px;
+    overflow: auto;
+    border-right-color: red;
+    border-right-style: solid;
+    border-right-width: 1px;
+}
+#navbar a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    padding: 14px;
+    background-color: white;
+}
+#navbar a:hover {
+    color: white;
+    background-color: #ff4418;
+}
+#logo {
+    width: 200px;
+    height: 60px;
+    padding: 14px;
+}
+#main-doc {
+    margin-left: 250px;
+    height: 2000px;
+    padding-left: 30px;
+}
+#footer {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    margin-top: 14px;
+    width: 100%;
+    z-index: 100;
+    opacity: 1;
+    background-color: rgba(235,235,235,.6);
+    text-align: center;
+}
+#poweredby {
+    margin-left: 20px;
+}
+.reference-item {
+    text-decoration: none;
+}
+.fa-external-link-alt {
+    font-size: 8px;
+}
+.fa-html5 {
+    font-size: 24px;
+    color: #ff0000;
+}
+.fa-css3-alt {
+    font-size: 24px;
+    color: #00b3ff;
+}
+@media screen and (max-width: 600px) {
+    #navbar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    #navbar a {
+        float: left;
+    }
+    #main-doc {
+        margin-left: 0;
+    }
+}
